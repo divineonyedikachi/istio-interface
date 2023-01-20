@@ -1,4 +1,12 @@
 # Starter pipeline
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'None'
+    namespace: 'default'
+    command: 'install'
+    chartType: 'Name'
+    chartName: 'bitnami/kafka'
+    arguments: '--set externalAccess.enabled=true --set externalAccess.service.ports.external=9094'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
